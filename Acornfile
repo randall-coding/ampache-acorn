@@ -1,0 +1,14 @@
+containers: {
+    ampache: {
+        image: "ampache/ampache:latest"
+        ports: publish: "80/http"
+        dirs: {
+            "/var/lib/mysql" : "volume://dbdata"
+        }
+    }
+}
+
+volumes: dbdata: {
+    size: "1Gi"
+    accessModes: "readWriteOnce"
+}
